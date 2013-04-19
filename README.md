@@ -1,3 +1,3 @@
-## Ruby On Rails : sample application
+## Ruby On Rails : application
 
-Sample application for RoR
+application for RoR
