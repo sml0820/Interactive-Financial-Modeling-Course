@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422185735) do
+ActiveRecord::Schema.define(:version => 20130422204725) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(:version => 20130422185735) do
     t.integer  "level_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "state"
   end
+
+  add_index "steps", ["state"], :name => "index_steps_on_state"
 
   create_table "users", :force => true do |t|
     t.string   "name"
