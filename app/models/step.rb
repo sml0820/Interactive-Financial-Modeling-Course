@@ -1,5 +1,5 @@
 class Step < ActiveRecord::Base
-  attr_accessible :instructions
+  attr_accessible :instructions, :description
   belongs_to :level
 
   state_machine initial: :pending do

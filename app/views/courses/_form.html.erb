@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="span6 offset3">
+
+		<%= form_for(@course) do |f|  %>
+			<%= render 'shared/error_messages_courses' %>
+
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+
+			<%= f.label :description %>
+			<%= f.text_field :description %>
+
+			<%= f.label :typeof %>
+			<%= f.text_field :typeof %>
+
+			<%= f.fields_for :levels do |builder| %>
+            <%= render 'level_fields', f: builder %>
+			<% end %>
+			<%= link_to_add_fields "Add Level", f, :levels %>
+
+
+			<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

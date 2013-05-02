@@ -1,3 +1,20 @@
+<% if signed_in? %>
+
+<div class="center hero-unit">
+	<h1>finance institute</h1>
+	<p>
+		This is the home page for the RoR finance institute
+	</p>
+	<p>
+	    Your Classes that you are a currently signed up for 
+	    are below </p>
+
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
+
+<% else %>
+
 <div class="center hero-unit">
 	<h1>finance institute</h1>
 	<p>
@@ -8,3 +25,5 @@
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
+
+<% end %>

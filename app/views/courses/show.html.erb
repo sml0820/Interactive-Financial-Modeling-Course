@@ -1,0 +1,17 @@
+<h1><%= @course.title %></h1>
+
+<ol class="questions">
+<% @course.levels.each do |level| %>
+  <li>
+  	<%= level.title %>
+  	<ol class="answers">
+  		<% level.steps.each do |step| %>
+  		<li><%= step.description %></li>
+  		<% end %>
+  	</ol>
+  </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back to Courses', course_path %>
