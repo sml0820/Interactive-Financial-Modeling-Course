@@ -48,9 +48,9 @@ before_filter :admin_user,  only: :destroy
   private
 
     def signed_in_user
-      unless signed_in?
+      unless user_signed_in?
         store_location
-      redirect_to signin_path, notice: "Please sign in." unless signed_in?
+      redirect_to new_user_session_path, notice: "Please sign in." unless user_signed_in?
       end
     end
     def correct_user
@@ -59,6 +59,6 @@ before_filter :admin_user,  only: :destroy
     end
 
     def admin_user
-      redirect_to root_path unless current_user.admin?
+      redirect_to root_path unless current_user.try(:admin?)
     end
 end

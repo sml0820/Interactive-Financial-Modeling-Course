@@ -1,5 +1,5 @@
 Given /^a user visits the signin page$/ do
-  visit signin_path
+  visit new_user_session_path
 end
 
 When /^he submit invalid signin information$/ do
@@ -27,5 +27,5 @@ Then /^he should see his profile page$/ do
 end
 
 Then /^he should a signout link$/ do
-  page.should have_link('Sign out', href: signout_path)  
+  page.should have_link('Sign out', href: destroy_user_session_path)  
 end
