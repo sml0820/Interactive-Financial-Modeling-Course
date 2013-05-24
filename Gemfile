@@ -9,6 +9,11 @@ gem 'jquery-rails', '2.0.2'
 gem 'rb-fsevent', '~> 0.9'
 gem 'state_machine'
 gem 'devise'
+gem 'json', '~> 1.7.7'
+
+if RUBY_PLATFORM =~ /linux/i
+  gem 'rb-inotify', '~> 0.9'
+end
 
 
 group :development, :test do
@@ -24,6 +29,7 @@ end
 group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
+  gem 'compass-rails'
   gem 'uglifier', '1.2.3'
 end
 
