@@ -10,6 +10,7 @@ gem 'rb-fsevent', '~> 0.9'
 gem 'state_machine'
 gem 'devise'
 gem 'json', '~> 1.7.7'
+gem 'activeadmin'
 
 if RUBY_PLATFORM =~ /linux/i
   gem 'rb-inotify', '~> 0.9'

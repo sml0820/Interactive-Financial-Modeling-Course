@@ -1,5 +1,5 @@
 SampleApp::Application.routes.draw do
-  devise_for :users
+
 
   resources :users
   resources :courses
@@ -13,7 +13,11 @@ SampleApp::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
+  devise_for :users
+  ActiveAdmin.routes(self)
  
 
   # The priority is based upon order of creation:
