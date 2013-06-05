@@ -1,8 +1,7 @@
 SampleApp::Application.routes.draw do
 
 
-  resources :users
-  resources :courses
+
 
   root to: 'static_pages#home' 
   
@@ -18,6 +17,9 @@ SampleApp::Application.routes.draw do
 
   devise_for :users
   ActiveAdmin.routes(self)
+
+  resources :users
+  resources :courses
  
 
   # The priority is based upon order of creation:
