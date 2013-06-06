@@ -1,4 +1,4 @@
-SampleApp::Application.routes.draw do
+Serenity::Application.routes.draw do
 
 
 

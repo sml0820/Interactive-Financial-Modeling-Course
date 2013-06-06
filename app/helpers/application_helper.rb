@@ -26,6 +26,124 @@ module ApplicationHelper
 		image_tag(gravatar_url, alt: user.name, class: "gravatar")
 	end
 
+	#imported methods
+
+  def icons
+    File.readlines('icons.txt')
+  end
+
+  def extra_button_styles(with = nil)
+    %w(large small mini)
+  end
+
+  def button_styles
+    %w(normal large small mini)
+  end
+
+  def button_colors
+    %w(default red blue green gray black lightblue gold sea brown)
+  end
+
+  def random_numbers(count, from=3, to=30)
+    count.times.map{ from + Random.rand(to-from) }
+  end
+
+  def random_string(length=10)
+    chars = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+    password = ''
+    length.times { password << chars[rand(chars.size)] }
+    password
+  end
+
+  def current_link
+    # root_path = "/"
+    current_route = request.url.split("/") # pages/dashboard/stats.html -> ['dashboard', 'stats.html']
+    return current_route.compact.first, current_route.compact.split(".").first
+  end
+
+  def link_level
+    primary, secondary = current_link
+    if menu[primary.to_sym][:items].keys.count > 1
+      return 2
+    else
+      return 1
+    end
+  end
+
+  def nav_collapse(options = {})
+    @primary, @secondary = current_link
+    return "collapsed" unless options[:primary] == @primary
+  end
+
+  def nav_active(options = {})
+    @primary, @secondary = current_link
+
+    if options[:primary]
+      return "active" if options[:primary] == @primary
+    end
+
+    if options[:secondary]
+      return "active" if options[:secondary] == @secondary
+    end
+  end
+
+  def menu
+    return {
+        dashboard: {
+            primary: { link: "dashboard", icon: "icon-dashboard", label: "Dashboard" },
+            items: {
+                dashboard: { icon: "icon-dashboard", label: "Dashboard" }
+            }
+        },
+        ui_lab: {
+            primary: { link: "buttons", icon: "icon-beaker", label: "UI Lab" },
+            items: {
+                buttons: { icon: "icon-hand-up",       label: "Buttons" },
+                general: { icon: "icon-beaker",        label: "General elements" },
+                icons:   { icon: "icon-info-sign",     label: "Icons"},
+                grid:    { icon: "icon-th-large",      label: "Grid"},
+                tables:  { icon: "icon-table",         label: "Tables"},
+                widgets: { icon: "icon-plus-sign-alt", label: "Widgets"},
+            }
+        },
+        forms: {
+            primary: { link: "forms", icon: "icon-edit", label: "Forms" },
+            items: {
+                forms: { icon: "icon-edit", label: "Form Elements" }
+            }
+        },
+        charts: {
+            primary: { link: "charts", icon: "icon-bar-chart", label: "Charts"},
+            items: {
+                charts: { icon: "icon-bar-chart", label: "Charts"}
+            }
+        },
+        other: {
+            primary: { link: "wizard", icon: "icon-link", label: "Others"},
+            items: {
+                wizard: { icon: "icon-magic", label: "Wizard" },
+                login: { icon: "icon-user", label: "Login Page" },
+                sign_up: { icon: "icon-user", label: "Sign Up Page" },
+                full_calendar: { icon: "icon-calendar", label: "Full Calendar" },
+                error404: { icon: "icon-ban-circle", label: "Error 404 page" },
+            }
+        }
+    }
+  end
+
+def crumbs
+  primary, secondary = current_link
+  return {
+    primary: { icon: ( menu[primary.to_sym][:primary][:icon] rescue nil ),
+               label: ( menu[primary.to_sym][:primary][:label] rescue nil )},
+    secondary:
+      { icon: ( menu[primary.to_sym][:items][secondary.to_sym][:icon] rescue nil ),
+        label: ( menu[primary.to_sym][:items][secondary.to_sym][:label] rescue nil )
+      }
+    }
+end
+
+
 
 end
 
