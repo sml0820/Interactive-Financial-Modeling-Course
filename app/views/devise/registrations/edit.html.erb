@@ -26,9 +26,10 @@
 
   <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
   <%= f.password_field :current_password %>
-
+  <div>
   <%= gravatar_for @user %>
     <a href="http://gravatar.com/emails" target="_blank">change avatar</a>
+  </div>
 
   <div><%= f.submit "Save changes", class: "btn btn-large btn-primary" %></div>
 <% end %>
