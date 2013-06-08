@@ -4,6 +4,8 @@
 		<%= form_for(@course) do |f|  %>
 			<%= render 'shared/error_messages_courses' %>
 
+			<div class="coursecreator">
+
 			<%= f.label :title %>
 			<%= f.text_field :title %>
 
@@ -12,6 +14,8 @@
 
 			<%= f.label :typeof %>
 			<%= f.text_field :typeof %>
+
+			</div>
 
 			<%= f.fields_for :levels do |builder| %>
             <%= render 'level_fields', f: builder %>

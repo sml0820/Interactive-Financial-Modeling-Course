@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/bootstrap
+//= require courses
 //= require jquery191
 //= require jqueryui1102
 //= require fullcalendar/fullcalendar
