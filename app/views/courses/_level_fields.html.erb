@@ -1,10 +1,10 @@
-<fieldset>
-	<%= f.label :title, "Level" %> <br />
+<fieldset class="levelCreator">
+	<%= f.label :title, "Level"%> <br />
 	<%= f.text_field :title %><br />
 	<%= f.hidden_field :_destroy %>
-	<%= link_to "remove", '#', class: "remove_fields" %>
+	<%= link_to "remove", '#', class: "btn btn-danger btn-mini remove_fields" %>
 	<%= f.fields_for :steps do |builder| %>
       <%= render 'step_fields', f: builder %>
 	<% end %>
-	<%= link_to_add_fields "Add Step", f, :steps %>
+	<%= link_to_add_fields "add step", f, :steps %>
 </fieldset>

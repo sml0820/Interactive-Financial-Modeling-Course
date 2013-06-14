@@ -4,7 +4,7 @@
 		<%= form_for(@course) do |f|  %>
 			<%= render 'shared/error_messages_courses' %>
 
-			<div class="coursecreator">
+			<div class="courseCreator">
 
 			<%= f.label :title %>
 			<%= f.text_field :title %>
@@ -20,10 +20,11 @@
 			<%= f.fields_for :levels do |builder| %>
             <%= render 'level_fields', f: builder %>
 			<% end %>
-			<%= link_to_add_fields "Add Level", f, :levels %>
+			<%= link_to_add_fields "add level", f, :levels %>
 
 
-			<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+			<%= f.submit "Save", class: "btn btn-large btn-primary save" %>
+
 		<% end %>
 	</div>
 </div>
