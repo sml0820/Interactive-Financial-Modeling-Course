@@ -9,7 +9,14 @@ describe User do
       :password => "changeme",
       :password_confirmation => "changeme"
     }
+
   end
+
+  it { should respond_to(:courses)}
+  it { should respond_to(:take_course!)}
+  it { should respond_to(:taking_course?)}
+  it { should respond_to(:remove_course!)}
+
 
   it "should create a new instance given a valid attribute" do
     User.create!(@attr)
@@ -108,4 +115,27 @@ describe User do
       end
     end
 
-end
+
+  
+
+  describe "taking course" do
+    subject { @user }
+    let(:course) {FactoryGirl.create(:course)}
+    before do
+      @user = User.new(@attr)
+      @user.save
+      @user.take_course!(course)
+    end
+
+    it { should be_taking_course(course)}
+    # its(:courses) { should include(course)}
+    describe "and removing course" do
+      before { @user.remove_course!(course)}
+
+      it { should_not be_taking_course(course)}
+    end
+
+
+  end
+
+ end

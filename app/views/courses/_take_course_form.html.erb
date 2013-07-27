@@ -1,0 +1,8 @@
+<div id="take_course">
+	<% if current_user.taking_course?(@course) %>
+	  <%= render 'remove_course' %>
+	  <% else %>
+	  <%= render 'take_course' %>
+	  <% end %>
+</div>
+

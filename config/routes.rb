@@ -18,8 +18,13 @@ Serenity::Application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
 
-  resources :users
+  resources :users do
+    member do
+      get :courses
+    end
+  end
   resources :courses
+  resources :assignments, only: [:create, :destroy]
  
 
   # The priority is based upon order of creation:

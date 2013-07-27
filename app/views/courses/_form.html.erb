@@ -16,9 +16,10 @@
 			<%= f.text_field :typeof %>
 
 			</div>
-
+			<% index = 1 %>
 			<%= f.fields_for :levels do |builder| %>
-            <%= render 'level_fields', f: builder %>
+  			<%= render 'level_fields', {f: builder, index: index} %>
+  			<% index = index + 1 %>
 			<% end %>
 			<%= link_to_add_fields "add level", f, :levels %>
 

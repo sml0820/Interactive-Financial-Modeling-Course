@@ -8,5 +8,13 @@ FactoryGirl.define do
 	    factory :admin do
 	    	admin true
 	    end
-	end
+
+	  end
+
+	  factory :course do
+	  	sequence(:title) { |n| "Ze Finance Course #{n}" }
+	  	sequence(:description) { |n| "Description for course #{n}" }
+	  end
+
+	
 end

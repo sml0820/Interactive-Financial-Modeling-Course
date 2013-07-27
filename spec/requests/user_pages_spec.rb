@@ -60,6 +60,27 @@ describe "UserPages" do
 
 		it { should have_selector('h1', text: user.name)}
 		it { should have_selector('title', text: user.name)}
+
+		describe "take/remove course buttons" do
+			let(:course) { FactoryGirl.create(:course)}
+			before { sign_in user}
+
+			describe "taking a course" do
+				before { visit course_path(course)}
+
+				it "should increment the user course count" do
+					expect do
+						click_button "Take Course"
+					end.to change(user.courses, :count).by(1)
+				end
+
+				describe "toggling the button" do
+					before { click_button "Take Course"}
+					it {  should have_selector('input', value: 'Remove Course')}
+				end
+
+			end
+		end
 	end
 
 	describe "signup" do
@@ -144,4 +165,29 @@ describe "UserPages" do
 		# 	specify { user.reload.email.should == new_email }
 		# end
 	end
+    describe "User Courses" do
+
+      subject { @user }
+      let(:course) {FactoryGirl.create(:course)}
+
+	    before do
+	      @attr = {
+	      :name => "Example User",
+	      :email => "user@example.com",
+	      :password => "changeme",
+	      :password_confirmation => "changeme"
+	      }
+	      @user = User.new(@attr)
+	      @user.save
+	      @user.take_course!(course)
+	 
+	        # sign_in @user
+	        visit courses_user_path(@user)
+	      end
+
+	       it { should have_selector('title', text: full_title('User Courses'))}
+	       it { should have_selector('h3', text: 'User Courses')}
+	       it { should have_link(course.title, href: course_path(course))}
+	     end
+
 end

@@ -11,6 +11,26 @@ require 'spec_helper'
 	  	it { should have_selector('h1', text: 'finance institute')}
 	  	it { should have_selector('title', text: full_title('')) }
 	  	it { should_not have_selector('title', text: '| Home') }
+
+	  	describe "for signed-in users" do
+	  		let(:user) { FactoryGirl.create(:user)}
+	  		before do
+	  			sign_in user
+	  			visit root_path
+	  		end
+
+	  		describe "taking course counts" do
+	  			let(:course) {FactoryGirl.create(:course)}
+	  			before do 
+	  				user.take_course!(course)
+	  				visit root_path
+	  			end
+
+	  			it { should have_link("0 courses", href: courses_path(user))}
+
+	  		end
+	  	end
+
 	end
 	describe "Help page" do
 

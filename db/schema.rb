@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524144003) do
+ActiveRecord::Schema.define(:version => 20130624165511) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130524144003) do
   end
 
   add_index "assignments", ["course_id"], :name => "index_assignments_on_course_id"
+  add_index "assignments", ["user_id", "course_id"], :name => "index_assignments_on_user_id_and_course_id", :unique => true
   add_index "assignments", ["user_id"], :name => "index_assignments_on_user_id"
 
   create_table "courses", :force => true do |t|

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_filter :signed_in_user, only: [:index, :edit, :update]
+before_filter :signed_in_user, only: [:index, :edit, :update, :courses]
 before_filter :correct_user, only: [:edit, :update]
 before_filter :admin_user,  only: :destroy
 
@@ -44,6 +44,14 @@ before_filter :admin_user,  only: :destroy
     flash[:success] = "User destroyed"
     redirect_to users_path
   end
+
+  def courses
+    @title = "User Courses"
+    @user = User.find(params[:id])
+    @courses = @user.courses
+    render 'show_courses'
+  end
+  
 
   private
 
