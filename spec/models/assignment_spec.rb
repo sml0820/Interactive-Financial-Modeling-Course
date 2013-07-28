@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Assignment do
-	  let(:course) {FactoryGirl.create(:user)}
+	  let(:course) {FactoryGirl.create(:course)}
 	  let(:user) {FactoryGirl.create(:user)}
 	  let(:assignment) { user.assignments.build(course_id: course.id)}
 

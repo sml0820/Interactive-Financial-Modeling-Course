@@ -26,7 +26,7 @@ require 'spec_helper'
 	  				visit root_path
 	  			end
 
-	  			it { should have_link("0 courses", href: courses_path(user))}
+	  			it { should have_link("1 courses", href: courses_user_path(user))}
 
 	  		end
 	  	end

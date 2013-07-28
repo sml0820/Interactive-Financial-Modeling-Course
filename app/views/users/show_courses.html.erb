@@ -13,9 +13,9 @@
   <div class="span8">
     <h3><%= @title %></h3>
     <% if @courses.any? %>
-      <ul class="users">
+      <ul class="courses">
         <%- @courses.each do |course| %>
-        <%= course.title %>
+        <%= link_to course.title, course_path(course) %>
         <%- end%>
       </ul>
     <% end %>

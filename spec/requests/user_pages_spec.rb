@@ -167,7 +167,7 @@ describe "UserPages" do
 	end
     describe "User Courses" do
 
-      subject { @user }
+
       let(:course) {FactoryGirl.create(:course)}
 
 	    before do
@@ -181,7 +181,7 @@ describe "UserPages" do
 	      @user.save
 	      @user.take_course!(course)
 	 
-	        # sign_in @user
+	        sign_in @user
 	        visit courses_user_path(@user)
 	      end
 
