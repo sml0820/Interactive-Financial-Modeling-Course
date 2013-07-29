@@ -80,6 +80,24 @@ describe "UserPages" do
 				end
 
 			end
+
+			describe "removing a course" do
+				before do
+					user.take_course!(course)
+					visit course_path(course)	
+				end
+
+				it "should decrement the user course count" do
+					expect do
+						click_button "Remove Course"
+					end.to change(user.courses, :count).by(-1)
+				end
+
+				describe "toggling the button" do
+					before { click_button "Remove Course"}
+					it {  should have_selector('input', value: 'Take Course')}
+				end
+			end
 		end
 	end
 

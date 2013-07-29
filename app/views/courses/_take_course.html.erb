@@ -1,4 +1,4 @@
-<%= form_for(current_user.assignments.build(course_id: @course.id)) do |f| %>
+<%= form_for(current_user.assignments.build(course_id: @course.id), remote: true) do |f| %>
   <div><%= f.hidden_field :course_id %></div>
   <%= f.submit "Take Course", class: "btn btn-large btn-primary"%>
 <% end %>
