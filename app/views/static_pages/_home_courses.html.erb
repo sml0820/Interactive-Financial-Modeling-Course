@@ -1,0 +1,12 @@
+
+<div class="row">
+  <div class="span8">
+    <% if @courses.any? %>
+      <ul class="courses">
+        <%- @courses.each do |course| %>
+        <%= link_to course.title, course_path(course) %>
+        <%- end%>
+      </ul>
+    <% end %>
+  </div>
+</div>
