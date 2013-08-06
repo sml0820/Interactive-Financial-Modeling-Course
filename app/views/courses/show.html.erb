@@ -1,6 +1,8 @@
 <h1><%= @course.title %></h1>
 <%= render 'take_course_form' if signed_in? %>
 
+<%= link_to "Go to Course!", '#' , class: "btn btn-large btn-primary btn-block" %>
+
 <ol class="questions">
 <% @course.levels.each do |level| %>
   <li>

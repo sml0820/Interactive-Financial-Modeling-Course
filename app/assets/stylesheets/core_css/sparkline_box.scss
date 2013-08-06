@@ -2,6 +2,10 @@
 
 .sparkline-box {
 
+   ul, li, ul li {
+   list-style:none
+   }
+
   &.side {
     .sparkline {
       margin-top: 5px;
@@ -11,6 +15,7 @@
       padding:0;
       float: none;
       border: none;
+      list-style-type: none;
     }
 
     h4 {

@@ -62,4 +62,9 @@
 *= require core_css/responsive480
 *= require_self
 *= require_directory .
+
+
+#otis li {
+    list-style-type: none;
+}
  */

@@ -23,7 +23,11 @@ Serenity::Application.routes.draw do
       get :courses
     end
   end
-  resources :courses
+  resources :courses do
+    resources :levels, only: [:show] do
+      resources :steps, only: [:show]
+    end
+  end
   resources :assignments, only: [:create, :destroy]
  
 
