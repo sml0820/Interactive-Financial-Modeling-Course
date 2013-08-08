@@ -1,6 +1,9 @@
 <fieldset class="levelCreator">
 	<% index = + 1 %>
-	<%= f.label :title, "Level #{index}"%> <br />
+	<div>
+	<%= "Level #{index}" %>
+    </div>
+	<%= f.label :title, "Title"%> <br />
 	<%= f.text_field :title %><br />
 	<%= f.hidden_field :_destroy %>
 	<%= link_to "remove", '#', class: "btn btn-danger btn-mini remove_fields" %>

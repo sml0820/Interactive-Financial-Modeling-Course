@@ -1,9 +1,9 @@
 class StepsController < ApplicationController	
 
 	def show
-		@course = Course.find(params[:id])
 		@level = Level.find(params[:id])
 		@step = Step.find(params[:id])
+		@step_count = Step.count('date', :distinct => true) 
 	end
 
 end

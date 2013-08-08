@@ -5,22 +5,30 @@
 	<p>
 		This is the home page for the RoR finance institute
 	</p>
-	<p>
-	    Your Classes that you are a currently signed up for 
-	    are below </p>
-
+	
 </div>
 
-<section>
-	<%= render 'home_courses' %>
-</section>
+<div class="box closable-chat-box">
+  <div class="box-content padded">
 
-<section>
-	<%= render 'shared/stats' %>
-</section>
+	<h3>
+		    Your Classes that you are a currently signed up for 
+		    are below: 
+	</h3>
+	<section>
+		<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
+		<%= render 'home_courses' %>
+	</section>
 
+  </div>
+</div>
+<div>
+	<%= render 'big_charts' %>
+</div>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
+<div>
+	<%= render 'news_layout' %>
+</div>
 
 <% else %>
 

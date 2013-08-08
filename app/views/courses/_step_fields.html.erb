@@ -1,6 +1,20 @@
 <fieldset class="stepCreator">
-	<%= f.label :description, "Step" %>
+	<%= "Step" %>
+	<%= f.label :description, "Description" %>
 	<%= f.text_field :description %>
+
+	<div class="gamma">
+	<%= f.label :media_type, "Excel" %>
+	<%= f.radio_button :media_type, 'excel', :checked => true, class: 'icheck' %>
+	<%= f.label :media_type, "Video" %>
+	<%= f.radio_button :media_type, 'video', class: 'icheck' %>
+	<%= f.label :media_type, "Multiple Choice" %>
+	<%= f.radio_button :media_type, 'multiple_choice', class: 'icheck' %>
+
+    </div>
+
 	<%= f.hidden_field :_destroy %>
-	<%= link_to "remove", '#', class: "btn btn-danger btn-mini remove_fields" %>
+
+	<%= link_to "remove", '#', class: "btn btn-danger btn-mini remove_fields "%>
+
 </fieldset>

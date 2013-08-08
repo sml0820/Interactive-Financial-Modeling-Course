@@ -3,6 +3,8 @@
 
 .box {
 
+
+
   @include box-shadow(0 2px 2px -2px #CCC);
   background: $box-background;
   border: 1px solid $box-border-color;
@@ -112,6 +114,10 @@
 
   }
 
+}
+
+.box ul li{
+  list-style-type: none;
 }
 
 .box-list {
