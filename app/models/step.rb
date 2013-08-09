@@ -14,4 +14,5 @@ class Step < ActiveRecord::Base
     	transition :finished => :pending
     end
   end
+
 end

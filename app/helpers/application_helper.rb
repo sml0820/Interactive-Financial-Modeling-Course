@@ -76,16 +76,8 @@ module ApplicationHelper
     return "collapsed" unless options[:primary] == @primary
   end
 
-  def nav_active(options = {})
-    @primary, @secondary = current_link
-
-    if options[:primary]
-      return "active" if options[:primary] == @primary
-    end
-
-    if options[:secondary]
-      return "active" if options[:secondary] == @secondary
-    end
+  def nav_active(link)
+   return "active" if params[:id].to_s == link.to_s
   end
 
   def menu
