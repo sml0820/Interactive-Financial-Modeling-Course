@@ -9,7 +9,8 @@
   	<%= level.title %>
   	<ol class="answers">
   		<% level.steps.each do |step| %>
-  		<li><%= step.description %></li>
+  		<li>
+  		<%= link_to step.description, course_level_step_path(@course.id, level.id, step.id) %></li>
   		<% end %>
   	</ol>
   </li>

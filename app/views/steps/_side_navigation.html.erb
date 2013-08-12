@@ -18,10 +18,11 @@
     <% link += 1 %>
             <li class="<%= nav_active link %>">
               <span class="glow"></span>
-              <a href="<%= link %>">
+              <a href = "
+              <%= course_level_step_path(@course.id, @level.id, step.id) %>" >
                   <i class='icon-info-sign icon-2x'></i>
                   <span>Video</span>
-              </a>
+                </a>
             </li>
 
 
@@ -29,7 +30,7 @@
     <% link += 1 %>
             <li class="<%= nav_active link %>">
               <span class="glow"></span>
-              <a href="<%= link %>">
+              <a href="<%= course_level_step_path(@course.id, @level.id, step.id) %>">
                   <i class="<%= icon[i] %> icon-2x"></i>
                   <span>Step <%= i %> </span>
               </a>
@@ -39,7 +40,7 @@
     <% link += 1 %>
             <li class="<%= nav_active link %>">
               <span class="glow"></span>
-             <a href="<%= link %>">
+             <a href="<%= course_level_step_path(@course.id, @level.id, step.id) %>">
                   <i class="<%= icon[i] %> icon-2x"></i>
                   <span>Step <%= i %></span>
               </a>

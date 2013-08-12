@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/bootstrap
-//= require steps
 //= require courses
 //= require jquery191
 //= require jqueryui1102
