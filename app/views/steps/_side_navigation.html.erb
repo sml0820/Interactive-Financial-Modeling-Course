@@ -9,14 +9,13 @@
   <ul class="nav nav-collapse collapse nav-collapse-primary">
 
     <% icon= ["icon-link", "icon-bar-chart", "icon-edit", "icon-beaker","icon-link", "icon-bar-chart", "icon-edit", "icon-beaker"] %>
-    <% link = 0 %>
+    
 
     <% @step_list.each_with_index do |step, i| %>
 
     <% case step.media_type %>
     <% when 'video' %>
-    <% link += 1 %>
-            <li class="<%= nav_active link %>">
+            <li class="<%= nav_active step %>">
               <span class="glow"></span>
               <a href = "
               <%= course_level_step_path(@course.id, @level.id, step.id) %>" >
@@ -27,8 +26,7 @@
 
 
     <% when 'excel' %>
-    <% link += 1 %>
-            <li class="<%= nav_active link %>">
+            <li class="<%= nav_active step %>">
               <span class="glow"></span>
               <a href="<%= course_level_step_path(@course.id, @level.id, step.id) %>">
                   <i class="<%= icon[i] %> icon-2x"></i>
@@ -37,8 +35,7 @@
             </li>
 
     <% else %>
-    <% link += 1 %>
-            <li class="<%= nav_active link %>">
+            <li class="<%= nav_active step %>">
               <span class="glow"></span>
              <a href="<%= course_level_step_path(@course.id, @level.id, step.id) %>">
                   <i class="<%= icon[i] %> icon-2x"></i>
