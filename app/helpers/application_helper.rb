@@ -29,9 +29,9 @@ module ApplicationHelper
 
 	#imported methods
 
-  def icons
-    File.readlines('icons.txt')
-  end
+  # def icons
+  #   File.readlines('icons.txt')
+  # end
 
   def extra_button_styles(with = nil)
     %w(large small mini)
@@ -78,6 +78,19 @@ module ApplicationHelper
 
   def nav_active(step)
    return "active" if params[:id].to_s == step.id.to_s
+  end
+
+  def nav_active_icon(step, i)
+   @x = i if params[:id].to_s == step.id.to_s
+   def display
+    return @x
+   end
+  end
+
+  def icons
+  ["icon-link", "icon-bar-chart", "icon-edit",
+   "icon-beaker","icon-link", "icon-bar-chart",
+   "icon-edit", "icon-beaker"]
   end
 
   def menu

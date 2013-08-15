@@ -4,13 +4,37 @@
 
       <div class="area-top clearfix">
         <div class="pull-left header">
-          <h3 class="title">
-            <i class="icon-info-sign"></i></i>
-            Video
-          </h3>
-          <h5>
-            A video for the course is here
-          </h5>
+          
+  
+              <% case @step.media_type %>
+              <% when 'video' %>
+                <h3 class="title">
+                  <i class="icon-info-sign"></i></i>
+                  Video
+                </h3>
+                <h5>
+                  A video for the course is here
+                </h5>
+
+             <% when 'excel' %>
+               <h3 class="title">
+                <i class="<%= icons[display] %>"></i></i>
+                  Excel
+                </h3>
+                <h5>
+                  Please use the excel sheet below to complete the challenge.
+                </h5>
+
+             <% else %>
+               <h3 class="title">
+                <i class="<%= icons[display] %>"></i></i>
+                  Multiple Choice                              
+                </h3>
+                <h5>
+                  Please choose from a selection below
+                </h5>
+
+             <% end %>
         </div>
 
         <ul class="inline pull-right sparkline-box" >

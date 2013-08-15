@@ -7,8 +7,6 @@
 
  <!-- Main nav -->
   <ul class="nav nav-collapse collapse nav-collapse-primary">
-
-    <% icon= ["icon-link", "icon-bar-chart", "icon-edit", "icon-beaker","icon-link", "icon-bar-chart", "icon-edit", "icon-beaker"] %>
     
 
     <% @step_list.each_with_index do |step, i| %>
@@ -24,24 +22,31 @@
                 </a>
             </li>
 
+            <% nav_active_icon(step, i) %>
+
+
 
     <% when 'excel' %>
             <li class="<%= nav_active step %>">
               <span class="glow"></span>
               <a href="<%= course_level_step_path(@course.id, @level.id, step.id) %>">
-                  <i class="<%= icon[i] %> icon-2x"></i>
+                  <i class="<%= icons[i] %> icon-2x"></i>
                   <span>Step <%= i %> </span>
               </a>
             </li>
+
+             <% nav_active_icon(step, i) %>
 
     <% else %>
             <li class="<%= nav_active step %>">
               <span class="glow"></span>
              <a href="<%= course_level_step_path(@course.id, @level.id, step.id) %>">
-                  <i class="<%= icon[i] %> icon-2x"></i>
+                  <i class="<%= icons[i] %> icon-2x"></i>
                   <span>Step <%= i %></span>
               </a>
             </li>
+
+             <% nav_active_icon(step, i) %>
  
     <% end %>   
   <% end %>

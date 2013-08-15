@@ -2,6 +2,20 @@
 <%= render 'side_navigation' %>
 <%= render 'top_navigation' %>
 
+  <% case @step.media_type %>
+  <% when 'video' %>
+
+
+  <% when 'excel' %>
+
+
+  <% else %>
+ 
+
+  <% end %>
+
+
+
 <div class="box closable-chat-box">
   <div class="box-content padded">
 	<%= @step.description %>
