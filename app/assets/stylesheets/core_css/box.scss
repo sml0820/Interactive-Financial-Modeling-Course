@@ -3,8 +3,6 @@
 
 .box {
 
-
-
   @include box-shadow(0 2px 2px -2px #CCC);
   background: $box-background;
   border: 1px solid $box-border-color;
@@ -155,6 +153,7 @@
 }
 
 
+
 //todo: move this out of here
 .faded-toolbar {
   a {
@@ -248,3 +247,4 @@
     margin-top: 5px;
   }
 }
+
