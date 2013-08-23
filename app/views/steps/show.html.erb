@@ -2,26 +2,16 @@
 <%= render 'side_navigation' %>
 <%= render 'top_navigation' %>
 
-
-
-
-<!-- need to move to stylesheet -->
-<div class="box" style="margin-left: 50px; margin-right: 50px">
-  <div class="padded" >
-
-	<%= @step.description %>
-  </div>
-</div>
-
   <% case @step.media_type %>
   <% when 'video' %>
-
+    <%= render 'video' %>
 
   <% when 'excel' %>
+    <%= render 'description' %>
     <%= render 'excel' %>
 
   <% else %>
- 
+    <%= render 'description' %>
 
   <% end %>
 
