@@ -1,7 +1,7 @@
 <fieldset class="stepCreator">
 	<%= "Step" %>
-	<%= f.label :description, "Description" %>
-	<%= f.text_area :description, :style => "width: 100%;" %>
+	<%= f.label :description, "Instructions" %>
+	<%= f.text_area :description, :style => "width: 98%;", :rows => "5" %>
 
 	<div>
 		<div>
@@ -17,6 +17,7 @@
 		  <%= f.radio_button :media_type, 'multiple_choice', class: 'icheck' %>
 		</div>
     </div>
+
 
 	<%= f.hidden_field :_destroy %>
 
