@@ -263,7 +263,7 @@ DEPENDENCIES
   faker (= 1.0.1)
   guard-rspec (= 1.2.1)
   guard-spork!
-  jquery-rails (= 2.0.2)
+  jquery-rails
   json (~> 1.7.7)
   launchy (= 2.1.0)
   pg (= 0.12.2)

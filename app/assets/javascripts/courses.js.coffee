@@ -1,4 +1,5 @@
 jQuery ->
+
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
@@ -9,3 +10,7 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  $("#excelCreator").hide()
+  $("#videoCreator").hide()
+  $("#mcCreator").hide()

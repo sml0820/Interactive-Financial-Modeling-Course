@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/bootstrap
+//= require bootstrap-editable
 //= require courses
+//= require static_pages
 //= require jquery191
 //= require jqueryui1102
 //= require fullcalendar/fullcalendar
@@ -36,8 +38,6 @@
 //= require validation/jquery.validationEngine-en
 //= require validation/jquery.validationEngine
 //= require fullcalendar/calendar_events
-//= require bootstrap-editable
-//= require editable/editable_demo
 //= require ibutton
 //= require core_js/gritter
 //= require core_js/calendar

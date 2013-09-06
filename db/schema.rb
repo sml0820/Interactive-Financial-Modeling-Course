@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905131519) do
+ActiveRecord::Schema.define(:version => 20130905144600) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(:version => 20130905131519) do
     t.datetime "updated_at",     :null => false
     t.integer  "state"
     t.string   "media_type"
+    t.text     "link"
+    t.text     "choice_one"
+    t.text     "choice_two"
+    t.text     "choice_three"
+    t.text     "choice_four"
   end
 
   add_index "steps", ["state"], :name => "index_steps_on_state"
