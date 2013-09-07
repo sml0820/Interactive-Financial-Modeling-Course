@@ -16,7 +16,6 @@
 //= require bootstrap-editable
 //= require courses
 //= require static_pages
-//= require jquery191
 //= require jqueryui1102
 //= require fullcalendar/fullcalendar
 //= require jquery_gritter

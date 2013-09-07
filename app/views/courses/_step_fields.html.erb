@@ -3,34 +3,34 @@
 	<%= f.label :description, "Instructions" %>
 	<%= f.text_area :description, :style => "width: 98%;", :rows => "5" %>
 
-	<div>
+	<div class="stepContainer">
 		<div>
 		  <%= f.label :media_type, "Excel" %>
-		  <%= f.radio_button :media_type, 'excel', :checked => true, class: 'icheck', id: 'excelRadio' %>
+		  <%= f.radio_button :media_type, 'excel', :checked => true, class: 'icheck stepRadio' %>
 		</div>
 		<div>
 		  <%= f.label :media_type, "Video" %>
-		  <%= f.radio_button :media_type, 'video', class: 'icheck' %>
+		  <%= f.radio_button :media_type, 'video', class: 'icheck stepRadio' %>
 		</div>
 		<div>
 		  <%= f.label :media_type, "Multiple Choice" %>
-		  <%= f.radio_button :media_type, 'multiple_choice', class: 'icheck' %>
+		  <%= f.radio_button :media_type, 'multiple_choice', class: 'icheck stepRadio' %>
 		</div>
     </div>
 
-    <div id="excelCreator">
+    <div class="excelCreator">
 	    <%= f.label :link, "Excel Link" %>
 		<%= f.text_field :link, :style => "width: 98%;" %>
 		<%= f.label :answer, "Excel Answer (#)" %>
 		<%= f.text_field :answer, :style => "width: 98%;" %>
 	</div>
 
-	<div id="videoCreator">
+	<div class="videoCreator">
 	    <%= f.label :link, "Video Link" %>
 		<%= f.text_field :link, :style => "width: 98%;" %>
 	</div>
 
-    <div id="mcCreator">
+    <div class="mcCreator">
 	    <%= f.label :choice_one, "Choice One" %>
 		<%= f.text_field :choice_one, :style => "width: 98%;" %>
 		<%= f.label :choice_two, "Choice Two" %>
@@ -42,12 +42,6 @@
 		<%= f.label :answer, "MC Answer (#)" %>
 		<%= f.text_field :answer, :style => "width: 98%;" %>
 	</div>
-
-
-
-
-
-
 
 
 	<%= f.hidden_field :_destroy %>

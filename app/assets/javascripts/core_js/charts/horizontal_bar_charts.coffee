@@ -46,7 +46,7 @@ $ ->
     data: d2_h
     bars:
       horizontal: true
-      show: true
+      show: truez
       barWidth: 0.2
       order: 2
 
@@ -85,4 +85,6 @@ $ ->
     else
       $(".tooltip").remove()
       previousPoint = null
+
+
 

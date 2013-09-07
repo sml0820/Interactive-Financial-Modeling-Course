@@ -11,6 +11,13 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  $("#excelCreator").hide()
-  $("#videoCreator").hide()
-  $("#mcCreator").hide()
+  $(".excelCreator, .videoCreator, .mcCreator").hide()
+  $(".stepRadio").on "ifChecked", (event) ->
+    $container = $(@).closest('.stepCreator')
+    $container.find(".excelCreator, .videoCreator, .mcCreator").hide()
+    if @value is "video"
+      $container.find(".videoCreator").show()
+    else if @value is "excel" 
+      $container.find(".excelCreator").show()
+    else if @value is "multiple_choice"
+      $container.find(".mcCreator").show()
