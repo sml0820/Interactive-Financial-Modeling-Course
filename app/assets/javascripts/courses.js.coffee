@@ -10,10 +10,13 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     $(".excelCreator, .videoCreator, .mcCreator").hide()
-    $('.stepRadio:checked').change()
+    $('.icheck').iCheck
+      checkboxClass: 'icheckbox_flat-aero'
+      radioClass: 'iradio_flat-aero'
+    $('.stepRadio:checked').trigger('ifChecked')
     event.preventDefault()
 
-  $(document).on 'change', '.stepRadio', ->
+  $(document).on 'ifChecked', '.stepRadio', ->
     $container = $(@).closest('.stepCreator')
     $container.find(".excelCreator, .videoCreator, .mcCreator").hide()
     if @value is "video"
@@ -22,4 +25,6 @@ jQuery ->
       $container.find(".excelCreator").show()
     else if @value is "multiple_choice"
       $container.find(".mcCreator").show()
-  $('.stepRadio:checked').change() 
+  $('.stepRadio:checked').trigger('ifChecked')
+
+ 
