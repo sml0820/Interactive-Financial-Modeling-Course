@@ -1,5 +1,7 @@
 class Step < ActiveRecord::Base
-  attr_accessible :instructions, :description, :media_type
+  attr_accessible :instructions, :description, :media_type,
+                  :link, :answer, :choice_one, :choice_two,
+                  :choice_three, :choice_four
   belongs_to :level
 
   state_machine initial: :pending do
