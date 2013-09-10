@@ -60,7 +60,17 @@ body {
 	margin-left: 45%;
 }
 
-form.courseForm {
-	width: 500px;
+/* Steps */
+
+.multipleChoice {
+	display: table;
+    margin: auto;
 }
 
+.radioGroup {
+    display:block;
+    text-align:center;
+}
+.radioGroup label {
+    display:block;
+}
