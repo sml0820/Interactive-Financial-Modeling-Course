@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
-gem 'jquery-rails'
+gem "jquery-rails", '< 3.0.0'
 gem 'rb-fsevent', '~> 0.9'
 gem 'state_machine'
 gem 'devise'
 gem 'json', '~> 1.7.7'
-gem 'activeadmin'
+gem "activeadmin"
 gem 'gon'
 
 if RUBY_PLATFORM =~ /linux/i
