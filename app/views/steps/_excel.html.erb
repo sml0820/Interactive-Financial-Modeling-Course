@@ -10,7 +10,7 @@
 	 */
 
 	// Use this file token to reference FB Excel Pages.xlsx in Excel's APIs
-	var fileToken = "SD7076CAE4F36228D!114/506492979011527309/t=0&s=0&v=!AMctA6wtREsPx-w";
+	var fileToken = gon.excel_link;
 
 	// run the Excel load handler on page load
 	if (window.attachEvent) {
@@ -39,9 +39,16 @@
 	}
 
 	function onEwaLoaded(result) {
+
+		if (
+			gon.excel_link === "hello")
+		{
+
+		alert(fileToken)
 		/*
 		 * Add code here to interact with the embedded Excel web app.
 		 * Find out more at http://msdn.microsoft.com/en-US/library/hh315812.aspx.
 		 */
+}
 	}
 </script>

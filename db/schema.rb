@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905144600) do
+ActiveRecord::Schema.define(:version => 20130911162336) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,17 +75,19 @@ ActiveRecord::Schema.define(:version => 20130905144600) do
     t.text     "description"
     t.string   "cell_location"
     t.string   "image_location"
-    t.integer  "answer"
+    t.integer  "mc_answer"
     t.integer  "level_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "state"
     t.string   "media_type"
-    t.text     "link"
+    t.text     "video_link"
     t.text     "choice_one"
     t.text     "choice_two"
     t.text     "choice_three"
     t.text     "choice_four"
+    t.string   "excel_link"
+    t.integer  "excel_answer"
   end
 
   add_index "steps", ["state"], :name => "index_steps_on_state"
