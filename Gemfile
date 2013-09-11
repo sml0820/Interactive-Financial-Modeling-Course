@@ -9,6 +9,7 @@ gem 'state_machine'
 gem 'devise'
 gem 'json', '~> 1.7.7'
 gem 'activeadmin'
+gem 'gon'
 
 if RUBY_PLATFORM =~ /linux/i
   gem 'rb-inotify', '~> 0.9'
