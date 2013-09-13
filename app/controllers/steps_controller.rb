@@ -6,6 +6,7 @@ class StepsController < ApplicationController
 		@step = Step.find(params[:id])
 		@step_list = @level.steps
 		gon.excel_link = @step.excel_link
+		gon.cell_location = @step.cell_location
 	end
 
 end

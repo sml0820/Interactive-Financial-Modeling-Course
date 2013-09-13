@@ -1,6 +1,6 @@
 class Step < ActiveRecord::Base
   attr_accessible :instructions, :description, :media_type,
-                  :excel_link, :excel_answer, :video_link, :choice_one, :choice_two,
+                  :excel_link, :excel_answer, :cell_location, :video_link, :choice_one, :choice_two,
                   :choice_three, :choice_four, :mc_answer
   belongs_to :level
 

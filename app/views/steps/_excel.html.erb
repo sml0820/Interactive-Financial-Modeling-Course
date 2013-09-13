@@ -1,50 +1,70 @@
 <div id="myExcelDiv" style="width: 600px; height: 540px; margin: 0 auto"></div>
-
 <script type="text/javascript" src="http://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1"></script>
 <script type="text/javascript">
-	/*
-	 * This code uses the Microsoft Office Excel Javascript object model to programmatically insert the
-	 * Excel Web App into a div with id=myExcelDiv. The full API is documented at
-	 * http://msdn.microsoft.com/en-US/library/hh315812.aspx. There you can find out how to programmatically get
-	 * values from your Excel file and how to use the rest of the object model. 
-	 */
+    /*
+    * This code uses the Microsoft Office Excel JavaScript object model to programmatically insert the
+    * Excel Web App into a div with id=myExcelDiv. The full API is documented at
+    * http://msdn.microsoft.com/en-us/library/hh315812.aspx. There you can find out how to programmatically get
+    * values from your Excel file and how to use the rest of the object model. 
+    */
 
-	// Use this file token to reference FB Excel Pages.xlsx in Excel's APIs
-	var fileToken = gon.excel_link;
+    // Use this file token to reference Book1.xlsx in the Excel APIs
+    var fileToken = gon.excel_link;
+    var ewa = null;
 
-	// run the Excel load handler on page load
-	if (window.attachEvent) {
-		window.attachEvent("onload", loadEwaOnPageLoad);
-	} else {
-		window.addEventListener("DOMContentLoaded", loadEwaOnPageLoad, false);
-	}
+    // Run the Excel load handler on page load.
+    if (window.attachEvent)
+    {
+        window.attachEvent("onload", loadEwaOnPageLoad);
+    } else
+    {
+        window.addEventListener("DOMContentLoaded", loadEwaOnPageLoad, false);
+    }
 
-	function loadEwaOnPageLoad() {
-		var props = {
-			uiOptions: {
-				showGridlines: true,
-				showRowColumnHeaders: true,
-				showParametersTaskPane: true
-			},
-			interactivityOptions: {
-				allowTypingAndFormulaEntry: true,
-				allowParameterModification: true,
-				allowSorting: true,
-				allowFiltering: true,
-				allowPivotTableInteractivity: false
-			}
-		};
+    function loadEwaOnPageLoad()
+    {
+        var props = {
+            uiOptions: {
+                showGridlines: true,
+                showRowColumnHeaders: true,
+                showParametersTaskPane: true
+            },
+            interactivityOptions: {
+                allowTypingAndFormulaEntry: true,
+                allowParameterModification: true,
+                allowSorting: false,
+                allowFiltering: false,
+                allowPivotTableInteractivity: false
+            }
+        };
+        // Embed workbook using loadEwaAsync
+        Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
+    }
 
-		Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
-	}
+    function onEwaLoaded(asyncResult)
+    { 
+        if (asyncResult.getSucceeded())
+        {
+            // Use the AsyncResult.getEwaControl() method to get a reference to the EwaControl object
+            ewa = asyncResult.getEwaControl();
+            ewa.add_activeCellChanged(cellChanged);
+        }
+        else
+        {
+            alert("Async operation failed!");
+        }
+        // ...
+    }
 
-	function onEwaLoaded(result) {
-
-		
-		/*
-		 * Add code here to interact with the embedded Excel web app.
-		 * Find out more at http://msdn.microsoft.com/en-US/library/hh315812.aspx.
-		 */
-}
-	}
+    // Handle the active cell changed event.
+    function cellChanged(rangeArgs)
+    {
+        // Use the RangeEventArgs object to get information about the range.
+        var sheetName = rangeArgs.getRange().getSheet().getName();
+        var col = rangeArgs.getRange().getColumn();
+        var row = rangeArgs.getRange().getRow();
+        var value = rangeArgs.getFormattedValues();
+        alert("The active cell is located at row " + (row + 1) + " and column " + (col + 1) + " with value '" + value + "'.");
+        // ...
+    }
 </script>
