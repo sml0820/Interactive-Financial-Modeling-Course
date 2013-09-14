@@ -57,8 +57,18 @@
 
 	function execute()
 	{
+
+		 //get the current sheet name and build the range address in A1 notation
+		var currentSheet = ewa.getActiveWorkbook().getActiveSheet().getName();
+	
 	    // Get unformatted range values (getValuesAsync(0,...) where 0 = Ewa.ValuesFormat.Unformatted)
-	    ewa.getActiveWorkbook().getActiveCell().getValuesAsync(0,getRangeValues,null);
+	  var cell = "0,0"
+
+	  var commaIndex = cell.indexOf(",");
+      var row = parseInt(cell.substring(0, commaIndex));
+      var column = parseInt(cell.substring(commaIndex + 1))
+      var range = ewa.getActiveWorkbook().getRange(currentSheet,row,column,row+1,column+1);
+      range.getValuesAsync(1, getRangeValues, null)
 	}     
 	 
 	function getRangeValues(asyncResult)
@@ -68,7 +78,8 @@
 	    {
 	        // Get the value in active cell (located at row 0, column 0 of the
 	        // range which consists of a single cell (the "active cell")).
-	        alert("Result: " + asyncResult.getReturnValue()[0][0]);
+			var cellValue = asyncResult.getReturnValue()[0][0];
+	        alert(cellValue);
 	    }
 	    else 
 	    {
