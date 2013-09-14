@@ -62,7 +62,7 @@
 		var currentSheet = ewa.getActiveWorkbook().getActiveSheet().getName();
 	
 	    // Get unformatted range values (getValuesAsync(0,...) where 0 = Ewa.ValuesFormat.Unformatted)
-	  var cell = "0,0"
+	  var cell = gon.cell_location
 
 	  var commaIndex = cell.indexOf(",");
       var row = parseInt(cell.substring(0, commaIndex));
