@@ -74,3 +74,19 @@ body {
 .radioGroup label {
     display:block;
 }
+
+#myExcelDiv {
+	width: 600px; 
+	height: 465px; 
+	margin: 0 auto;
+	border: 2px solid;
+	border-radius: 5px;
+	border-color: black;
+	background-color: white;
+}
+
+.checkAnswer {
+	display: table;
+    margin: auto;
+    margin-top: 20px;
+}

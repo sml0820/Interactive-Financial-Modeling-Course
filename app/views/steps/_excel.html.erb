@@ -1,4 +1,4 @@
-<div id="myExcelDiv" style="width: 600px; height: 540px; margin: 0 auto"></div>
+<div id="myExcelDiv"></div>
 <script type="text/javascript" src="http://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1"></script>
 <script type="text/javascript">
     /*
@@ -86,20 +86,7 @@
 	          alert("Operation failed with error message " + asyncResult.getDescription() + ".");
 	    }    
 	}
-
-
-
-    // Handle the active cell changed event.
-    function cellChanged(rangeArgs)
-    {
-        // Use the RangeEventArgs object to get information about the range.
-        var sheetName = rangeArgs.getRange().getSheet().getName();
-        var col = rangeArgs.getRange().getColumn();
-        var row = rangeArgs.getRange().getRow();
-        var value = rangeArgs.getFormattedValues();
-        alert("The active cell is located at row " + (row + 1) + " and column " + (col + 1) + " with value '" + value + "'.");
-        // ...
-    }
 </script>
-
-<%= link_to_function "check", 'execute();', class: "btn btn-danger btn-mini remove_fields "%>
+<div class="checkAnswer">
+<%= link_to_function "check answer", 'execute();', class: "btn btn-success remove_fields "%>
+</div>
