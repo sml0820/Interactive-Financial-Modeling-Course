@@ -79,8 +79,9 @@
 	        // range which consists of a single cell (the "active cell")).
 			var cellValue = asyncResult.getReturnValue()[0][0];
             var checked = checkAnswer(cellValue)
+            alert(checked)
 
-	        alert(checked);
+	        
             if(checked)
             {
                 //display dialogue
@@ -105,6 +106,8 @@
 
     }
 </script>
-<div class="checkAnswer">
-<%= link_to_function "check answer", 'execute();', class: "btn btn-success"%>
+<div class="checkAnswer" data-toggle="modal" href="#modal-simple">
+  <%= link_to_function "check answer", 'execute();', class: "btn btn-success"%>
 </div>
+
+<%= render 'modal_simple' %>
