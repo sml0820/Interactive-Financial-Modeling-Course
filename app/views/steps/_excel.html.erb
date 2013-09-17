@@ -79,18 +79,25 @@
 	        // range which consists of a single cell (the "active cell")).
 			var cellValue = asyncResult.getReturnValue()[0][0];
             var checked = checkAnswer(cellValue)
-            alert(checked)
+            
 
 	        
             if(checked)
             {
-                //display dialogue
+
+                //display correct-answer dialogue
+                $("#stepSuccess").show();
+                $("#stepSuccess").css('display','table');
+                $("#modal-text").text("Congratulations! Nice Job.");
                 //move to next step
 
             }
             else
             {
-                //display error
+                //display wrong-answer dialogue
+                $("#stepFailure").show();
+                $("#stepFailure").css('display','table');
+                $("#modal-text").text("Almost, try again.")
 
             }
 	    }

@@ -15,6 +15,7 @@
 //= require bootstrap/bootstrap
 //= require bootstrap-editable
 //= require courses
+//= require steps
 //= require static_pages
 //= require jqueryui1102
 //= require fullcalendar/fullcalendar

@@ -91,6 +91,29 @@ body {
     margin-top: 20px;
 }
 
+#modal-text {
+	display: table;
+    margin: auto;
+}
+
+#stepSuccess {
+	display: none;
+    margin: auto;
+}
+
+#stepFailure {
+	display: none;
+    margin: auto;
+}
+
+.icon-red {
+	color: red;
+}
+
+.icon-green {
+	color: green;
+}
+
 /* Login and Create */
 
 #loginButton {
