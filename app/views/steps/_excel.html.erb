@@ -79,25 +79,22 @@
 	        // range which consists of a single cell (the "active cell")).
 			var cellValue = asyncResult.getReturnValue()[0][0];
             var checked = checkAnswer(cellValue)
-            
+          
 
 	        
             if(checked)
             {
 
                 //display correct-answer dialogue
-                $("#stepSuccess").show();
-                $("#stepSuccess").css('display','table');
-                $("#modal-text").text("Congratulations! Nice Job.");
+                $('#modal-simple-success').modal('show')
                 //move to next step
-
+            
             }
             else
             {
                 //display wrong-answer dialogue
-                $("#stepFailure").show();
-                $("#stepFailure").css('display','table');
-                $("#modal-text").text("Almost, try again.")
+                $('#modal-simple-failure').modal('show')
+
 
             }
 	    }
@@ -113,8 +110,9 @@
 
     }
 </script>
-<div class="checkAnswer" data-toggle="modal" href="#modal-simple">
+<div class="checkAnswer" data-toggle="modal">
   <%= link_to_function "check answer", 'execute();', class: "btn btn-success"%>
 </div>
 
-<%= render 'modal_simple' %>
+<%= render 'shared/modal_simple_success' %>
+<%= render 'shared/modal_simple_failure' %>
