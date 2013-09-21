@@ -1,49 +1,34 @@
 <% if user_signed_in? %>
 
-<div class="center hero-unit">
-	<h1>finance institute</h1>
-	<p>
-		This is the home page for the RoR finance institute
-	</p>
-	
-</div>
 
-<div class="box closable-chat-box">
-  <div class="box-content padded">
+<script type="text/javascript">
+    $('.tooltip-test').tooltip();
+</script>
+
+<a href="#" class="tooltip-test" title="" data-original-title="Tooltip">This link</a
 
 	<h3>
 		    Your Classes that you are a currently signed up for 
 		    are below: 
 	</h3>
 	<section>
-		<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
 		<%= render 'home_courses' %>
 	</section>
 
-  </div>
-</div>
-<div>
-	<%= render 'shared/big_charts' %>
-</div>
-
-<div>
-	<%= render 'news_layout' %>
-</div>
-
 <% else %>
 
-<div class="center hero-unit">
-	<h1>finance institute</h1>
-	<p>
-		This is the home page for the RoR finance institute
-	</p>
+	<div class="center hero-unit">
+		<h1>finance institute</h1>
+		<p>
+			This is the home page for the RoR finance institute
+		</p>
 
-	<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
-</div>
+		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+	</div>
 
-<div>
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
+	<div>
+	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
 
-</div>
+	</div>
 
 <% end %>

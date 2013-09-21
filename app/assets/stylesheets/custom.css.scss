@@ -2,6 +2,13 @@ body {
 	padding-top: 60px; 
 }
 
+/* Static Pages */
+
+.row-fluid [class*="span"].span-center, .span-center {
+    margin: 0 auto;
+    float: none;
+}
+
 /* Course Creator */
 
 .courseCreator { 
@@ -89,11 +96,6 @@ body {
 	display: table;
     margin: auto;
     margin-top: 20px;
-}
-
-.modal-text {
-	display: table;
-    margin: auto;
 }
 
 .align-center {

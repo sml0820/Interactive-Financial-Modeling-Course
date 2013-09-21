@@ -46,7 +46,7 @@ $ ->
     data: d2_h
     bars:
       horizontal: true
-      show: truez
+      show: true
       barWidth: 0.2
       order: 2
 
@@ -58,9 +58,9 @@ $ ->
       barWidth: 0.2
       order: 3
 
-  $.plot $("#placeholder1_hS"), ds_h,
-    grid:
-      hoverable: true
+  # $.plot $("#placeholder1_hS"), ds_h,
+  #   grid:
+  #     hoverable: true
 
 
   #add tooltip event

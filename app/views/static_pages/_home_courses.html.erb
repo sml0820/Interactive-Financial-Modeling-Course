@@ -1,13 +1,72 @@
+<% if @courses.any? %>
+  <ul>
+    <%- @courses.each do |course| %>
+	<div class="row-fluid">
+	  <div class="span-center span8">
+	    <div class="box">
+	      <div class="box-header">
+	        <span class="title"><i class="icon-th-list"></i></span>
+	      </div>
+	      <div class="box-content">
+	        <div class="justgage align-center" data-labels="false" data-title="%" id="<%= random_string %>"></div>
+	        <h3 class="align-center">
+	          <%= link_to course.title, course_path(course) %>
+	        </h3>
+	        <ul class="action-nav-normal rounded">
+			  <li class="action-nav-button">
+			    <a href="#" class="tip" title="Followers">
+			      <i class="icon-twitter"></i>
+			    </a>
+			  </li>
+			</ul>
+		  </div>
+	  </div>
+	</div>
+    <%- end%>
+  </ul>
+<ul class="action-nav-normal rounded">
 
-<div class="row">
-  <div class="span8">
-    <% if @courses.any? %>
-      <ul class="courses">
-        <%- @courses.each do |course| %>
-        <%= link_to course.title, course_path(course) %>
-        <%- end%>
-      </ul>
-    <% end %>
-  </div>
-</div>
+  <li class="action-nav-button">
+    <a href="#" class="tip" title="New Project" >
+      <i class="icon-file-alt"></i>
+    </a>
+  </li>
 
+  <li class="action-nav-button">
+    <a href="#" class="tip" title="Messages" >
+      <i class="icon-comments-alt"></i>
+    </a>
+    <span class="label label-black">14</span>
+  </li>
+
+  <li class="action-nav-button">
+    <a href="#" class="tip" title="Files">
+      <i class="icon-folder-open-alt"></i>
+    </a>
+  </li>
+
+  <li class="action-nav-button">
+    <a href="#" class="tip" title="Users">
+      <i class="icon-user"></i>
+    </a>
+  </li>
+
+  <li class="action-nav-button">
+    <a href="#" class="tip" title="Friends">
+      <i class="icon-facebook-sign"></i>
+    </a>
+  </li>
+
+  <li class="action-nav-button">
+    <a href="#" class="tip" title="Followers">
+      <i class="icon-twitter"></i>
+    </a>
+  </li>
+
+</ul>
+<% end %>
+    
+
+
+
+    
