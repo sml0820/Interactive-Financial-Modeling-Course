@@ -1,16 +1,10 @@
 <% if user_signed_in? %>
 
-
-<script type="text/javascript">
-    $('.tooltip-test').tooltip();
-</script>
-
-<a href="#" class="tooltip-test" title="" data-original-title="Tooltip">This link</a
-
-	<h3>
-		    Your Classes that you are a currently signed up for 
-		    are below: 
-	</h3>
+	<div>
+		<h5 class="align-center">
+			     Welcome back, <%= @user.name %>! Your Classes: 
+		</h5>
+	</div>
 	<section>
 		<%= render 'home_courses' %>
 	</section>
