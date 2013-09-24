@@ -15,6 +15,7 @@ body {
     margin: auto;
 }
 
+
 /* Course Creator */
 
 .courseCreator { 
@@ -88,7 +89,7 @@ body {
     display:block;
 }
 
-#myExcelDiv {
+.excel {
 	width: 600px; 
 	height: 465px; 
 	margin: 0 auto;
@@ -96,6 +97,10 @@ body {
 	border-radius: 5px;
 	border-color: black;
 	background-color: white;
+}
+
+#homeExcelDiv{
+	height:300px;
 }
 
 .checkAnswer {

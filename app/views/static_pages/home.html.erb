@@ -11,18 +11,21 @@
 
 <% else %>
 
-	<div class="center hero-unit">
+	<div class="center hero-unit align-center">
 		<h1>finance institute</h1>
-		<p>
+		<p class="align-center">
 			This is the home page for the RoR finance institute
 		</p>
 
-		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary align-center" %>
 	</div>
+
+	<section>
+		<%= render 'home_excel' %>
+	</section>
 
 	<div>
 	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org' %>
-
 	</div>
 
 <% end %>
