@@ -11,13 +11,16 @@
 
 <% else %>
 
-	<div class="center hero-unit align-center">
-		<h1>finance institute</h1>
-		<p class="align-center">
-			This is the home page for the RoR finance institute
-		</p>
+	<div class="align-center">
+		<h1 class="align-center small-padding">finance institute</h1>
+		<h5 class="align-center">
+			Learn the basics of finance and financial modeling interactively, for free
+		</h5>
+	</div>
 
-		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary align-center" %>
+	<div class="align-center small-padding">
+
+	  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
 	</div>
 
 	<section>
