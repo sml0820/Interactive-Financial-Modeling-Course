@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926191529) do
+ActiveRecord::Schema.define(:version => 20130926211417) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -92,7 +92,13 @@ ActiveRecord::Schema.define(:version => 20130926191529) do
     t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "step_id"
   end
+
+  add_index "user_steps", ["step_id"], :name => "index_user_steps_on_step_id"
+  add_index "user_steps", ["user_id", "step_id"], :name => "index_user_steps_on_user_id_and_step_id", :unique => true
+  add_index "user_steps", ["user_id"], :name => "index_user_steps_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

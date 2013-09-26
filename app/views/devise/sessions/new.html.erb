@@ -14,14 +14,14 @@
       	
         <div>
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'separate-sections'}) do |f| %>
+          <%= f.label :email %>
           <div class="input-prepend">
           <span class="add-on">
             <i class="icon-user"></i>
           </span>
-          
 		      <%= f.email_field :email, :placeholder => "e-mail" %>
           </div>
-
+          <%= f.label :password %>
           <div class="input-prepend">
           <span class="add-on">
             <i class="icon-key"></i>
