@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130912005142) do
+ActiveRecord::Schema.define(:version => 20130926191529) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20130912005142) do
     t.integer  "level_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "state"
     t.string   "media_type"
     t.text     "video_link"
     t.text     "choice_one"
@@ -89,7 +88,11 @@ ActiveRecord::Schema.define(:version => 20130912005142) do
     t.integer  "excel_answer"
   end
 
-  add_index "steps", ["state"], :name => "index_steps_on_state"
+  create_table "user_steps", :force => true do |t|
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

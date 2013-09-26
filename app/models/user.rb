@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   has_many :assignments, dependent: :destroy
   has_many :courses, through: :assignments
+  has_many :user_steps, dependent: :destroy
 
   def taking_course?(course)
     assignments.find_by_course_id(course.id)
@@ -19,8 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def remove_course!(course)
-    assignments.find_by_course_id(course.id).destroy
-    
+    assignments.find_by_course_id(course.id).destroy    
   end
 
 
