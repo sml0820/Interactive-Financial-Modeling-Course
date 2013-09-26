@@ -22,6 +22,27 @@
 	</div>
     <%- end%>
   </ul>
+<% else %>
+	<div class="row-fluid">
+	  <div class="span-center span8">
+	    <div class="box">
+	      <div class="box-header">
+	        <span class="title"></span>
+	      </div>
+	      <div class="box-content">
+	        <div class="justgage align-gage" data-labels="false" data-title="%" id="<%= random_string %>"></div>
+	        <h3 class="align-center">
+	          Your courses will go here.  Please add some courses!
+	        </h3>
+			<span>
+	            <a class="btn btn-blue btn-block" href="/courses">
+	                Add Courses <i class="icon-signin"></i>
+	            </a>
+            </span>
+		  </div>
+	  </div>
+	</div>
+
 <% end %>
     
 
