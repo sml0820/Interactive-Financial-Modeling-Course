@@ -1,7 +1,11 @@
 class UserStep < ActiveRecord::Base
   attr_accessible :state
-  belongs_to :users 
-  belongs_to :steps
+  attr_accessible :step_id
+  belongs_to :user 
+  belongs_to :step
+
+  validates :user_id, presence: true
+  validates :step_id, presence: true
 
 
   state_machine initial: :pending do

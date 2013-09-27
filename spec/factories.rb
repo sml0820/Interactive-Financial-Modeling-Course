@@ -8,11 +8,18 @@ FactoryGirl.define do
 	    factory :admin do
 	    	admin true
 	    end
-
 	  end
 
 	  factory :course do
 	  	sequence(:title) { |n| "Ze Finance Course #{n}" }
+	  	sequence(:description) { |n| "Description for course #{n}" }
+	  end
+
+	  factory :level do
+	  	sequence(:title) { |n| "Ze Finance Level #{n}" }
+	  end
+
+	  factory :step do
 	  	sequence(:description) { |n| "Description for course #{n}" }
 	  end
 
