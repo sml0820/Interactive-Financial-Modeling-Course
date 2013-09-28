@@ -6,6 +6,7 @@ class StepsController < ApplicationController
 		@level = Level.find(params[:level_id])
 		@step = Step.find(params[:id])
 		@step_list = @level.steps
+		@user_step = current_user.user_steps.find(params[:id])
 		gon.excel_link = @step.excel_link
 		gon.cell_location = @step.cell_location
 		gon.excel_answer = @step.excel_answer

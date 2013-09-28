@@ -87,6 +87,13 @@
 
                 //display correct-answer dialogue
                 $('#modal-simple-success').modal('show')
+                //create a relationship between User and Step (UserStep Model)
+                <%= current_user.user_steps.build(step_id: @step.id)} %>
+
+                //change state from pending to finished
+                <%= @user_steps.state.finish! %>
+
+
                 //move to next step
             
             }
@@ -113,6 +120,7 @@
 <div class="checkAnswer" data-toggle="modal">
   <%= link_to_function "check answer", 'execute();', class: "btn btn-success"%>
 </div>
+
 
 <%= render 'shared/modal_simple_success' %>
 <%= render 'shared/modal_simple_failure' %>
