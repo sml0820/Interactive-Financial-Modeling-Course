@@ -117,9 +117,20 @@
 
     }
 </script>
-<div class="checkAnswer" data-toggle="modal">
-  <%= link_to_function "check answer", 'execute();', class: "btn btn-success"%>
-</div>
+
+
+<% if current_user.attempted_step?(@step) %>
+    <div class="checkAnswer" data-toggle="modal">
+      <%= link_to_function "check answer", 'execute();', class: "btn btn-success" %>
+    </div>
+<% else %>
+    <div class="checkAnswer" data-toggle="modal">
+    <%= form_for(current_user.user_steps.build(step_id: @step.id), remote: true) do |f| %>
+      <div><%= f.hidden_field :step_id %></div>
+      <%= f.submit "check answer", class: "btn btn-large btn-primary" %>
+    <% end %>
+    </div>
+<% end %>
 
 
 <%= render 'shared/modal_simple_success' %>

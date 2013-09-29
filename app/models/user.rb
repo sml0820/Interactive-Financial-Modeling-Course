@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :courses, through: :assignments
   has_many :user_steps, dependent: :destroy
 
+
+# course methods
   def taking_course?(course)
     assignments.find_by_course_id(course.id)
   end
@@ -22,6 +24,21 @@ class User < ActiveRecord::Base
   def remove_course!(course)
     assignments.find_by_course_id(course.id).destroy    
   end
+
+# step methods
+  def attempted_step?(step)
+    user_steps.find_by_step_id(step.id)
+  end
+
+  def attempt_step!(step)
+    user_steps.create!(step_id: step.id)
+  end
+
+  def remove_user_step!(step)
+    user_steps.find_by_step_id(step.id).destroy    
+  end
+
+
 
 
 
