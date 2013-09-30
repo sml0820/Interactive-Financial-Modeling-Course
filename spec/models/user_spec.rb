@@ -128,14 +128,28 @@ describe User do
     end
 
     it { should be_taking_course(course)}
-    # its(:courses) { should include(course)}
+    its(:courses) { should include(course)}
     describe "and removing course" do
       before { @user.remove_course!(course)}
 
       it { should_not be_taking_course(course)}
     end
+  end
 
+  describe "attempting step" do
+    subject { @user }
+    let(:step) {FactoryGirl.create(:step)}
+    before do
+      @user = User.new(@attr)
+      @user.save
+      @user.attempt_step!(step)
+    end
 
+    it { should be_attempted_step(step)}
+    describe "and removing course" do
+      before { @user.remove_user_step!(step)}
+      it { should_not be_attempted_step(step)}
+    end
   end
 
  end

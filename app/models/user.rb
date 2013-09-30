@@ -38,11 +38,5 @@ class User < ActiveRecord::Base
     user_steps.find_by_step_id(step.id).destroy    
   end
 
-
-
-
-
-
-
 end
 

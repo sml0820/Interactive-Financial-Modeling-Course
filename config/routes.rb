@@ -29,6 +29,7 @@ Serenity::Application.routes.draw do
     end
   end
   resources :assignments, only: [:create, :destroy]
+  resources :user_steps, only: [:create, :destroy]
  
 
   # The priority is based upon order of creation:
