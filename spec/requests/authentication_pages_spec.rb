@@ -7,7 +7,6 @@ describe "AuthenticationPages" do
   describe "signin page" do
   	before { visit new_user_session_path }
 
-  	it { should have_selector('h1',    text: 'Sign in')}
   	it { should have_selector('title', text: 'Sign in')}
    
   end
@@ -96,6 +95,20 @@ describe "AuthenticationPages" do
 
 		    describe "submitting to the destroy action" do
 		      before { delete assignment_path(1)}
+		      specify { response.should redirect_to(new_user_session_path)}
+		    end
+
+		end
+
+		describe "in the User_steps controller" do
+
+			describe "submitting to the create action" do
+			  before { post user_steps_path}
+			  specify { response.should redirect_to(new_user_session_path)}
+		    end
+
+		    describe "submitting to the destroy action" do
+		      before { delete user_step_path(1)}
 		      specify { response.should redirect_to(new_user_session_path)}
 		    end
 

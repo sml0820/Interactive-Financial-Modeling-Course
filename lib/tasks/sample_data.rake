@@ -3,7 +3,9 @@ namespace :db do
 	task populate: :environment do
 		make_users
 		make_courses
+		make_steps
 		make_assignments
+		make_user_steps
 	end
 end
 
@@ -32,6 +34,13 @@ def make_courses
 	end
 end
 
+def make_steps
+	10.times do |n|
+		description = "step description-#{n+1}"
+		Step.create!(description: description)
+	end
+end
+
 
 def make_assignments
 	users = User.all
@@ -42,3 +51,16 @@ def make_assignments
 	courses_taken = courses[2..8]
 	class_takers.each { |takers| takers.take_course!(course)   }
 end
+
+
+
+def make_user_steps
+	users = User.all
+	user = users.first
+	steps = Step.all
+	step = steps.first
+	step_takers = users[2..50]
+	steps_taken = steps[2..8]
+	step_takers.each { |takers| takers.attempt_step!(step)   }
+end
+
