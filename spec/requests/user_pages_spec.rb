@@ -207,5 +207,4 @@ describe "UserPages" do
 	       it { should have_selector('h3', text: 'User Courses')}
 	       it { should have_link(course.title, href: course_path(course))}
 	     end
-
 end
