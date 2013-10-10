@@ -132,5 +132,19 @@
 <% end %>
 
 
+<% if current_user.attempted_step?(@step) %>
+    <%= form_for(current_user.user_steps.find_by_step_id(@step.id), html: { method: :delete }, remote: true) do |f| %>
+  <%= f.submit "Remove Course", class: "btn btn-large" %>
+<% end %>
+<% else %>
+    <div class="checkAnswer" data-toggle="modal">
+    <%= form_for(current_user.user_steps.build(step_id: @step.id), remote: true) do |f| %>
+      <div><%= f.hidden_field :step_id %></div>
+      <%= f.submit "check answer", class: "execute btn btn-large btn-primary" %>
+    <% end %>
+    </div>
+<% end %>
+
+
 <%= render 'shared/modal_simple_success' %>
 <%= render 'shared/modal_simple_failure' %>
