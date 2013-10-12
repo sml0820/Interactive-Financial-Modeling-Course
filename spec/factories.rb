@@ -16,11 +16,14 @@ FactoryGirl.define do
 	  end
 
 	  factory :level do
+	  	course
 	  	sequence(:title) { |n| "Ze Finance Level #{n}" }
 	  end
 
 	  factory :step do
+	  	level
 	  	sequence(:description) { |n| "Description for course #{n}" }
+	  	media_type "excel"
 	  end
 
 	

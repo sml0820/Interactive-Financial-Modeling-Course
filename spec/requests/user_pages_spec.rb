@@ -50,7 +50,6 @@ describe "UserPages" do
 	describe "signup page" do
 		before { visit new_user_registration_path }
 
-		it { should have_selector('h1', text: 'Sign up') }
 		it { should have_selector('title', text: full_title('Sign up')) }
 	end
 
@@ -96,6 +95,47 @@ describe "UserPages" do
 				describe "toggling the button" do
 					before { click_button "Remove Course"}
 					it {  should have_selector('input', value: 'Take Course')}
+				end
+			end
+		end
+
+		describe "attempting a step" do
+			let(:course) { FactoryGirl.create(:course)}
+			let(:level) { FactoryGirl.create(:level, course: course) }
+			let(:step) { FactoryGirl.create(:step, level: level) }
+			before { sign_in user}
+
+			describe "taking a course" do
+				before { visit course_level_step_path(course.id, level.id, step.id)}
+
+				it "should increment the user step count" do
+					expect do
+						click_button "check answer"
+					end.to change(user.user_steps, :count).by(1)
+				end
+
+				describe "toggling the button" do
+					before { click_button "check answer"}
+					it {  should have_selector('input', value: 'remove step')}
+				end
+
+			end
+
+			describe "removing a step" do
+				before do
+					user.attempt_step!(step)
+					visit course_level_step_path(course.id, level.id, step.id)	
+				end
+
+				it "should decrement the user step count" do
+					expect do
+						click_button "remove step"
+					end.to change(user.user_steps, :count).by(-1)
+				end
+
+				describe "toggling the button" do
+					before { click_button "remove step"}
+					it {  should have_selector('input', value: 'check answer')}
 				end
 			end
 		end

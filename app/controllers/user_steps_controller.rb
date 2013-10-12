@@ -5,7 +5,7 @@ class UserStepsController < ApplicationController
 		@step = Step.find(params[:user_step][:step_id])
 		current_user.attempt_step!(@step)
 		respond_to do |format|
-          format.html { redirect_to @step }
+          format.html { redirect_to course_level_step_url(@step.level.course.id, @step.level.id, @step.id)}
           format.js
         end
 	end
@@ -14,7 +14,7 @@ class UserStepsController < ApplicationController
 		@step = UserStep.find(params[:id]).step
 		current_user.remove_user_step!(@step)
 		respond_to do |format|
-          format.html { redirect_to @step }
+          format.html { redirect_to course_level_step_url(@step.level.course.id, @step.level.id, @step.id) }
           format.js
         end	
 	end
