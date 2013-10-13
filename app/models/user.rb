@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :assignments, dependent: :destroy
   has_many :courses, through: :assignments
   has_many :user_steps, dependent: :destroy
+  has_many :steps, through: :user_steps
 
 
 # course methods

@@ -1,4 +1,4 @@
-   <div class="checkAnswer" data-toggle="modal">
+   <div class="checkAnswer">
     <%= form_for(current_user.user_steps.build(step_id: @step.id), remote: true) do |f| %>
       <div><%= f.hidden_field :step_id %></div>
       <%= f.submit "check answer", class: " btn btn-large btn-primary" %>
