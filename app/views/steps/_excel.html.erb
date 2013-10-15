@@ -121,6 +121,7 @@
  <div id="attempt_step">
     <% if current_user.attempted_step?(@step) %>
        <%= render 'remove_attempt' %>
+       execute button goes here
     <% else %>
        <%= render 'attempt_step' %>
     <% end %>
