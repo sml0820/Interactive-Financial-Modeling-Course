@@ -80,8 +80,6 @@
 			var cellValue = asyncResult.getReturnValue()[0][0];
             var checked = checkAnswer(cellValue)
           
-
-	        
             if(checked)
             {
 
@@ -91,8 +89,6 @@
                 
                 //change state from pending to finished
                 
-
-
                 //move to next step
             
             }
@@ -100,8 +96,6 @@
             {
                 //display wrong-answer dialogue
                 $('#modal-simple-failure').modal('show')
-
-
             }
 	    }
 	    else 
@@ -117,15 +111,22 @@
     }
 </script>
 
+<div class="checkAnswer">
+  <%= link_to "test baby", '#', class: "btn", id: "mongoid" %>
+</div>
+
+<div class="checkAnswer" data-toggle="modal">
+  <%= link_to "check answer", '#', onclick: 'execute();', class: "btn btn-success mongoid"%>
+</div>
 
  <div id="attempt_step">
-    <% if current_user.attempted_step?(@step) %>
-       <%= render 'remove_attempt' %>
-       execute button goes here
+    <% if current_user.attempted_step?(@step) %>       
+       <%= render 'remove_attempt' %>   
     <% else %>
        <%= render 'attempt_step' %>
     <% end %>
 </div>
+
 
 
 <%= render 'shared/modal_simple_success' %>
