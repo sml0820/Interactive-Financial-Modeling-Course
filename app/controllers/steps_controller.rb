@@ -10,6 +10,7 @@ class StepsController < ApplicationController
 		gon.excel_link = @step.excel_link
 		gon.cell_location = @step.cell_location
 		gon.excel_answer = @step.excel_answer
+		gon.mc_answer = @step.mc_answer
 	end
 
 end

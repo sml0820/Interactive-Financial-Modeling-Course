@@ -1,4 +1,13 @@
-	
+<script>
+
+  function checkMC()
+  {
+
+       alert("I am an alert box!");
+  }
+
+
+</script>
 <%= fields_for :steps do |f| %>
     <div class="multipleChoice">
         <div class="radioGroup">
@@ -18,7 +27,7 @@
           <%= f.radio_button :choice_four, 4, {name: 'step', class: 'icheck'} %>
         </div>
         <div class="radioGroup">
-        	<%= link_to "submit", '#', class: "btn btn-success btn-mini" %>
+        	<%= link_to "submit", '#', class: "btn btn-success btn-mini mcSubmit" %>
         </div>
     </div>
 <% end %>
