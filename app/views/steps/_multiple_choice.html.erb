@@ -12,19 +12,19 @@
     <div class="multipleChoice">
         <div class="radioGroup">
           <%= f.label :choice_one, @step.choice_one %>
-          <%= f.radio_button :choice_one, 1, {name: 'step', checked: true, class: 'icheck'} %>
+          <%= f.radio_button :choice_one, 1, {name: 'step', checked: true, class: 'icheck mcRadio'} %>
         </div>
         <div class="radioGroup">
           <%= f.label :choice_two, @step.choice_two %>
-          <%= f.radio_button :choice_two, 2, {name: 'step', class: 'icheck'} %>
+          <%= f.radio_button :choice_two, 2, {name: 'step', class: 'icheck mcRadio'} %>
         </div>
         <div class="radioGroup">
           <%= f.label :choice_three, @step.choice_three %>
-          <%= f.radio_button :choice_three, 3, {name: 'step', class: 'icheck'} %>
+          <%= f.radio_button :choice_three, 3, {name: 'step', class: 'icheck mcRadio'} %>
         </div>
         <div class="radioGroup">
           <%= f.label :choice_four, @step.choice_four %>
-          <%= f.radio_button :choice_four, 4, {name: 'step', class: 'icheck'} %>
+          <%= f.radio_button :choice_four, 4, {name: 'step', class: 'icheck mcRadio'} %>
         </div>
         <div class="radioGroup">
         	<%= link_to "submit", '#', class: "btn btn-success btn-mini mcSubmit" %>
